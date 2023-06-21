@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Decision Tree Predictions</title>
+  <script src="./libraries/decisiontree.js"></script>
+  <script>
+    // Laden van het Decision Tree-model
+    var model = {
+      "tree": {
+        // Hier komt de JSON-structuur van het Decision Tree-model
+      }
+    };
+
+    // Functie voor het maken van een voorspelling
+    function predict() {
+      // Invoervoorbeeld voor de voorspelling
+      var example = {
+        "Outlook": "Sunny",
+        "Temperature": "Mild",
+        "Humidity": "Normal",
+        "Wind": "Weak"
+      };
+
+      // Laden van het Decision Tree-model
+      var decisionTree = new dt.DecisionTree();
+      decisionTree.load(model);
+
+      // Voorspelling uitvoeren
+      var prediction = decisionTree.predict(example);
+
+      // Resultaat weergeven
+      var predictionElement = document.getElementById("prediction");
+      predictionElement.innerText = "De voorspelling is: " + prediction;
+    }
+  </script>
+</head>
+<body>
+  <h1>Decision Tree Predictions</h1>
+
+  <div id="prediction"></div>
+
+  <script>
+    // Voer de voorspelling uit bij het laden van de pagina
+    predict();
+  </script>
+</body>
+</html>
